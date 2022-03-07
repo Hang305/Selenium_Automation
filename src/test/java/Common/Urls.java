@@ -1,4 +1,4 @@
-package Comon;
+package Common;
 
 public interface Urls {
 

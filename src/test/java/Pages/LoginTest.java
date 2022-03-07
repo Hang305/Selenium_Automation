@@ -1,21 +1,21 @@
+package Pages;
+
+import Common.Urls;
 import Drivers.DriverFactory;
 import org.openqa.selenium.WebDriver;
 
-import static Common.Urls.BASE_URL;
+public class LoginTest implements Urls {
 
-public class Main {
-
-    public static void main(String[] args) {
-
+    public static void openLoginPage() {
         WebDriver driver = DriverFactory.getChromeDriver();
 
         try {
-            driver.get(BASE_URL);
-
+            driver.get(BASE_URL.concat(LOGIN));
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             driver.quit();
         }
     }
+
 }
