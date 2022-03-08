@@ -1,4 +1,4 @@
-package Pages;
+package Test;
 
 public class RegisterTest {
 }
