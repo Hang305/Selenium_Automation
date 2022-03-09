@@ -8,24 +8,24 @@ import org.openqa.selenium.WebElement;
 
 public class LoginPage implements Urls {
     private final WebDriver driver;
-    private static final By usernameSel = By.cssSelector("#username");
-    private static  final By passwordSel = By.cssSelector("#password");
-    private static final By loginBtnSel = By.cssSelector("#login button[@type='submit']");
+    private static final By emailSel = By.cssSelector(".login-form-group input[type='email']");
+    private static  final By passwordSel = By.cssSelector(".login-form-group input[type='password']");
+    private static final By loginBtnSel = By.cssSelector(".login-form-submit button[type='submit']");
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public WebElement usernameElem (){
-        return this.driver.findElement(usernameSel);
+    public WebElement emailElem (){
+        return this.driver.findElement(emailSel);
     }
     public WebElement passwordElem (){
         return this.driver.findElement(passwordSel);
     }
 
     //Main interaction methods
-    public LoginPage inputUsername(String username){
-        this.driver.findElement(usernameSel).sendKeys(username);
+    public LoginPage inputEmail(String email){
+        this.driver.findElement(emailSel).sendKeys(email);
         return  this;
     }
 
