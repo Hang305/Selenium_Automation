@@ -5,5 +5,6 @@ public interface Urls {
     String BASE_URL = "https://iresource.smartdev.vn";
 
     String LOGIN = "/login";
+    String MY_PROJECTS ="/my-projects";
 
 }
