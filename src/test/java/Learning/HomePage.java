@@ -1,4 +1,4 @@
-package Pages;
+package Learning;
 
 import Common.Urls;
 import Drivers.DriverFactory;
@@ -11,7 +11,7 @@ public class HomePage implements Urls {
        try{
 
            driver.get(BASE_URL);
-           driver.navigate().to("https://iresource.smartdev.vn/");
+           driver.navigate().to(BASE_URL);
 
            //Back to page
            driver.navigate().back();
