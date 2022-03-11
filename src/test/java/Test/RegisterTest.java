@@ -18,6 +18,7 @@ public class RegisterTest implements Urls {
         driver.get(BASE_URL.concat(SIGNUP));
     }
 
+    // TC01: all elements are blank
     @Test
     public void TC_Register_Blank() {
         try {
@@ -35,6 +36,7 @@ public class RegisterTest implements Urls {
         }
     }
 
+    //TC02:
     @Test
     public void TC_Register_LoginLink() {
         try {

@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 public class ExplorePage implements Urls {
 
     private final WebDriver driver;
-    private static final By titleSel = By.cssSelector(".explore h2");
+    private static final By titleSel = By.cssSelector("h2[class='explore-title-top']");
 
     public ExplorePage(WebDriver driver) {
         this.driver = driver;
