@@ -48,8 +48,12 @@ public class LoginTest implements Urls {
             loginComponent.loginBtn().click();
 
 //            driver.manage().timeouts().implicitlyWait(10L, TimeUnit.SECONDS);
-            Thread.sleep(1000);
-            Assert.assertEquals(loginComponent.modelAlertElem().getText(), "Email or password is invalid.");
+            Thread.sleep(2000);
+            String actualEmailTest = loginComponent.modelAlertElem().getText();
+            System.out.println(loginComponent.modelAlertElem().getText());
+            String expectedEmailTest = "Email or password is invalid.";
+
+            Assert.assertEquals(actualEmailTest, expectedEmailTest);
 
         } catch (Exception e) {
             throw new IllegalArgumentException("Invalid email format");
@@ -58,7 +62,6 @@ public class LoginTest implements Urls {
 
     //TC03:  Input password is NOT already on DB
     @Test
-
     public void TC03_Password_NotAlreadyOnDB() {
         try {
             LoginPage loginPage = new LoginPage(driver);
@@ -66,15 +69,19 @@ public class LoginTest implements Urls {
             loginComponent.inputEmail("hanglee305+persona5@gmail.com");
             loginComponent.inputPassword("18272");
             loginComponent.loginBtn().click();
-            Thread.sleep(1000);
+            Thread.sleep(3000);
 //            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 //            driver.manage().timeouts().implicitlyWait(2L, TimeUnit.SECONDS);
-            Assert.assertEquals(loginComponent.modelAlertElem().getText(), "Email or password is invalid.");
+
+            String actualPasswordTest = loginComponent.modelAlertElem().getText();
+            String expectedPasswordTest="Email or password is invalid.";
+            Assert.assertEquals(actualPasswordTest,expectedPasswordTest );
 
         } catch (Exception e) {
             throw new IllegalArgumentException("Invalid password format");
         }
     }
+
     //TC04: Login with invalid format of email
     @Test
     public void TC04_Email_InvalidFormat() {
@@ -102,9 +109,11 @@ public class LoginTest implements Urls {
             loginComponent.inputEmail("ha@gmail.com");
             loginComponent.inputPassword("12");
             loginComponent.loginBtn().click();
+            Thread.sleep(2000);
+            String actualPasswordTest = loginComponent.passErrorElem().getText().trim();
+            String expectedPasswordTest = "Minimum 8 characters";
 
-            Thread.sleep(4000);
-            Assert.assertEquals(loginComponent.passErrorElem().getText(), "Minimum 8 characters");
+            Assert.assertEquals(actualPasswordTest, expectedPasswordTest, "[ERROR] Your password cannot be less than 8 characters and longer than 30 characters.");
 
         } catch (Exception e) {
             System.out.println("Your password cannot be less than 8 characters and longer than 30 characters.");
@@ -161,17 +170,20 @@ public class LoginTest implements Urls {
 
     //TC09: the default remember is checked
     @Test
-    public void TC09_DefaultRemember(){
+    public void TC09_DefaultRemember() {
         try {
+
             LoginPage loginPage = new LoginPage(driver);
             LoginComponent loginComponent = loginPage.loginComp();
+            boolean isSelected = loginComponent.rememberMeElem().isSelected();
 
-            Assert.assertEquals(loginComponent.inputDecription(), "Hello and welcome !");
+            Assert.assertEquals(isSelected, true);
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     @AfterTest
     public void tearDown() {
         driver.quit();

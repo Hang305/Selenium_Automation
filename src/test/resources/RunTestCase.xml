@@ -4,10 +4,11 @@
         <listener class-name="org.uncommons.reportng.HTMLReporter"/>
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
     </listeners>
-    <test name="Sample Test Case">
+    <test name="IResource">
         <classes>
+            <class name="Test.SignUpTest"/>
             <class name="Test.LoginTest"/>
-            <class name="Test.RegisterTest"/>
+
         </classes>
     </test>
 

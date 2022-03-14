@@ -35,7 +35,6 @@ public class Dropdown implements Urls {
 
             //Dropdown with data động - xpath get data
 
-
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
